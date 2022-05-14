@@ -6,9 +6,12 @@ const row2 = document.createElement('div');
 const row3 = document.createElement('div');
 const row4 = document.createElement('div');
 
-function createDivRow (rows) {
-    rows = rows; 
-    let row = document.createElement('div');
-    row.className = "row";
-    
+function createDivRow (columns) {
+    for (x = 0; x < columns ; x++) {
+        const box = document.createElement('div');
+        box.setAttribute('class', 'gridBox');
+        box.style.flex;
+        grid.appendChild(box);
+    }
 }
+
