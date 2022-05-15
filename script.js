@@ -3,13 +3,12 @@ const body = document.body;
 //container to hold grid in body
 const container = document.createElement('div');
 let rows = document.getElementsByClassName('rows');
-let cells = document.getElementsByClassName('cells');
-body.appendChild(grid);
+let cells = document.getElementsByClassName('cell');
+body.appendChild(container);
 
-
-//function to create rows based on number of cells set in parameter
-function createRow (cells) {
-    for (x = 0; x < cells ; x++) {
+//function to create rows based on number of numberRows set in parameter
+function createRow (numberRows) {
+    for (x = 0; x < numberRows ; x++) {
         const row = document.createElement('div');
         container.appendChild(row).className = 'rows';
     }
@@ -19,7 +18,15 @@ function createColumns (numberCells) {
     for (i = 0; i < rows.length; i++) {
         for (j = 0; j < numberCells; j++) {
             let cell = document.createElement("div");
-            rows[j].appendChild(newCell).className = "cell";
+            rows[j].appendChild(cell).className = "cell";
+            cell.addEventListener('hover', ()=>cell.background = "blue");
     }
 }
 }
+
+function grid (userInput = 4) {
+createRow(userInput);
+createColumns(userInput);
+}
+
+grid();
