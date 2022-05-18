@@ -18,9 +18,14 @@ function createCell(num) {
             let cell = document.createElement('div');
             cell.classList.add('cell');
             cell.addEventListener('mouseenter', ()=> {cell.style.background = "black"});
+            cell.addEventListener('mouseout', ()=> {cell.style.background = "white"});
            rows[i].appendChild(cell);
         }
     }
+}
+
+function promptForNumber() {
+    if 
 }
 
 function grid (userInput = 16) {
