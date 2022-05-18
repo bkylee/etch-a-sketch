@@ -1,10 +1,8 @@
 const body = document.body;
 const container = document.createElement('div');
 body.appendChild(container);
-let rows = document.querySelectorAll('.row');
-let cells = document.querySelectorAll('.cell')
-container.append(rows);
-container.append(cells)
+let rows = document.getElementsByClassName('row');
+let cells = document.getElementsByClassName('cell')
 
 function createRow (num){
     for (i = 0; i < num ; i ++) {
@@ -18,14 +16,14 @@ function createCell(num) {
     for (i = 0; i < num; i++) {
         for (j = 0; j < num; j++){
             let cell = document.createElement('div');
-            // cell.classList.add('cell');
-            // cell.addEventListener('hover', ()=> cell.style.background = "black");
+            cell.classList.add('cell');
+            cell.addEventListener('mouseenter', ()=> {cell.style.background = "black"});
            rows[i].appendChild(cell);
         }
     }
 }
 
-function grid (userInput = 4) {
+function grid (userInput = 16) {
     createRow(userInput);
     createCell(userInput);
 }
