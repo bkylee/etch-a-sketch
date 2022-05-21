@@ -4,6 +4,16 @@ body.appendChild(container);
 let rows = document.getElementsByClassName('row');
 let cells = document.getElementsByClassName('cell')
 
+const reset = document.createElement('button');
+reset.textContent = "Reset";
+reset.addEventListener("click", ()=> {
+    for (i = 0; i < cells.length; i ++){
+        cells[i].style.background = "white";
+    }
+});
+container.appendChild(reset);
+
+
 function createRow (num){
     for (i = 0; i < num ; i ++) {
         let row = document.createElement('div');
@@ -18,15 +28,14 @@ function createCell(num) {
             let cell = document.createElement('div');
             cell.classList.add('cell');
             cell.addEventListener('mouseenter', ()=> {cell.style.background = "black"});
-            cell.addEventListener('mouseout', ()=> {cell.style.background = "white"});
+            //cell.addEventListener('mouseout', ()=> {cell.style.background = "white"});
            rows[i].appendChild(cell);
         }
     }
 }
 
-function promptForNumber() {
-    if 
-}
+button = document.createElement('button');
+
 
 function grid (userInput = 16) {
     createRow(userInput);
