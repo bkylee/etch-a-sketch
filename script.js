@@ -13,6 +13,10 @@ reset.addEventListener("click", ()=> {
 });
 container.appendChild(reset);
 
+const rainbow = ["red", "orange","yellow", "green", "blue", "indigo", "violet"] ;
+function colourSelect(){
+    return Math.floor(Math.random() *7);
+}
 
 function createRow (num){
     for (i = 0; i < num ; i ++) {
