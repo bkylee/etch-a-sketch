@@ -13,10 +13,20 @@ reset.addEventListener("click", ()=> {
 });
 container.appendChild(reset);
 
+const clrSelect = document.createElement('button');
+clrSelect.textContent = "Rainbow";
+clrSelect.addEventListener('click', ()=> {
+    for (i = 0; i < cells.length; i ++){
+        cells[i].addEventListener('mouseenter', ()=> {cells[i].style.background = rainbow[colourSelect()]});
+    }
+});
+container.appendChild(clrSelect);
+
 const rainbow = ["red", "orange","yellow", "green", "blue", "indigo", "violet"] ;
 function colourSelect(){
     return Math.floor(Math.random() *7);
 }
+
 
 function createRow (num){
     for (i = 0; i < num ; i ++) {
