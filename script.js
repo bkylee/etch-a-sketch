@@ -6,28 +6,36 @@ let cells = document.getElementsByClassName('cell')
 
 const reset = document.createElement('button');
 reset.textContent = "Reset";
-reset.addEventListener("click", ()=> {
-    for (i = 0; i < cells.length; i ++){
-        cells[i].style.background = "white";
-    }
-});
+reset.addEventListener("click", resetGrid);
 container.appendChild(reset);
 
-const clrSelect = document.createElement('button');
-clrSelect.textContent = "Rainbow";
-clrSelect.addEventListener('click', ()=> {
-    for (i = 0; i < cells.length; i ++){
-        cells[i].addEventListener('mouseenter', ()=> {cells[i].style.background = rainbow[colourSelect()]});
-    }
-});
-container.appendChild(clrSelect);
 
-const rainbow = ["red", "orange","yellow", "green", "blue", "indigo", "violet"] ;
-function colourSelect(){
-    return Math.floor(Math.random() *7);
+function resetGrid (){
+        for (i = 0; i < cells.length; i ++){
+        cells[i].style.background = "white";
+}
+}
+//let randomColour = Math.floor(Math.random()*16777215).toString(16);
+
+
+//button to create a new grid based on number entered
+const gridNumber = document.createElement('button');
+gridNumber.addEventListener('click', newGrid());
+gridNumber.textContent = "New Grid";
+container.appendChild(gridNumber);
+
+function newGrid(){
+    x = prompt("Please enter a number greater than 0 to set the X and Y axis for the new grid.");
+    if (isNaN(x)) {
+        return newGrid(x);
+    }
+    else if (x < 0) {
+        return newGrid(x);
+    }
+    grid(x);
 }
 
-
+//function to create one row for cells. Parameter takes in the number of rows wanted
 function createRow (num){
     for (i = 0; i < num ; i ++) {
         let row = document.createElement('div');
@@ -36,19 +44,18 @@ function createRow (num){
     }
 }
 
+
+//function to create cells in each row created. Parameter takes in the number of cells per row 
 function createCell(num) {
     for (i = 0; i < num; i++) {
         for (j = 0; j < num; j++){
             let cell = document.createElement('div');
             cell.classList.add('cell');
             cell.addEventListener('mouseenter', ()=> {cell.style.background = "black"});
-            //cell.addEventListener('mouseout', ()=> {cell.style.background = "white"});
            rows[i].appendChild(cell);
         }
     }
 }
-
-button = document.createElement('button');
 
 
 function grid (userInput = 16) {
