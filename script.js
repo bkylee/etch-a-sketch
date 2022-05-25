@@ -20,7 +20,7 @@ function resetGrid (){
 
 //button to create a new grid based on number entered
 const gridNumber = document.createElement('button');
-gridNumber.addEventListener('click', newGrid());
+gridNumber.addEventListener('click', newGrid);
 gridNumber.textContent = "New Grid";
 container.appendChild(gridNumber);
 
@@ -32,6 +32,8 @@ function newGrid(){
     else if (x < 0) {
         return newGrid(x);
     }
+    container.removeChild(cells);
+    container.removeChild(rows);
     grid(x);
 }
 
