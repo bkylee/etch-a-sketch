@@ -26,14 +26,15 @@ container.appendChild(gridNumber);
 
 function newGrid(){
     x = prompt("Please enter a number greater than 0 to set the X and Y axis for the new grid.");
-    if (isNaN(x)) {
-        return newGrid(x);
+    for (i = 0; i < cells.length; i++){
+        rows.removeChild(cells[i]);
     }
-    else if (x < 0) {
-        return newGrid(x);
+    for (i = 0; i < rows.length; i++){
+        container.removeChild(rows[i]);
     }
-    container.removeChild(cells);
-    container.removeChild(rows);
+    if (x < 0 || isNaN(x)) {
+        return newGrid();
+    }
     grid(x);
 }
 
