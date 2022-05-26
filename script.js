@@ -26,17 +26,19 @@ container.appendChild(gridNumber);
 
 function newGrid(){
     x = prompt("Please enter a number greater than 0 to set the X and Y axis for the new grid.");
-    for (i = 0; i < cells.length; i++){
-        rows.removeChild(cells[i]);
-    }
-    for (i = 0; i < rows.length; i++){
-        container.removeChild(rows[i]);
+    while (cells.hasChildNodes()) {
+        cells.removeChild(cells.firstChild);
     }
     if (x < 0 || isNaN(x)) {
         return newGrid();
     }
     grid(x);
 }
+
+haschil
+
+
+
 
 //function to create one row for cells. Parameter takes in the number of rows wanted
 function createRow (num){
