@@ -26,9 +26,10 @@ container.appendChild(gridNumber);
 
 function newGrid(){
     x = prompt("Please enter a number greater than 0 to set the X and Y axis for the new grid.");
-    while (cells.firstChild) {
-        cells.removeChild(cells.lastChild);
-    }
+    cells = Array.from(document.getElementsByClassName('cell'));
+    cells.forEach(element => {
+        element.remove();
+    });
     if (x < 0 || isNaN(x)) {
         return newGrid();
     }
